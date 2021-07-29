@@ -1,7 +1,9 @@
 const mongoose=require('mongoose');
 
 //fill your database name here
-mongoose.connect('mongodb://localhost/authentication_db');
+const MONGODB_URI=process.env.DATABASE_URL || 'mongodb://localhost/authentication_db'
+mongoose.connect(MONGODB_URI,{useNewUrlParser:true});
+
 
 const db=mongoose.connection;
 
